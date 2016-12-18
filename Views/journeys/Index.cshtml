@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ys.Models.journey>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arrivedLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shipId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.arrivedLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shipId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

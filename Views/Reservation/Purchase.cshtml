@@ -1,0 +1,57 @@
+﻿@model ys.Models.ConfirmationViewModel
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+<h2>Confirmation</h2>
+
+<h3>@Model.email</h3>
+
+<table class="table">
+    <tr>
+        <th>Ship Name</th>
+        <th>Ship Type</th>
+        <th>Cabin Type</th>
+    </tr>
+    <tr>
+        <td>@Model.shipName</td>
+        <td>@Model.shipType</td>
+        <td>@Model.cabinType</td>
+    </tr>
+</table>
+<hr />
+<table class="table">
+    <tr>
+        <td>Start Date</td> <td>@Model.startDate</td>
+    </tr>
+    <tr>
+        <td>End Date</td> <td>@Model.endDate</td>
+    </tr>
+    <tr>
+        <td>Depart</td> <td>@Model.departure</td>
+    </tr>
+    <tr>
+        <td>Arrive</td> <td>@Model.arrival</td>
+    </tr>
+</table>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.jID)
+    @Html.HiddenFor(x => x.cabinType)
+    @Html.HiddenFor(x => x.price)
+    <div>
+        Name: @Html.EditorFor(x => x.name)
+    </div>
+    <div>
+        Credit Card Number: @Html.EditorFor(x => x.creditCardNumber)
+    </div>
+    <div>
+        Total Price: @Html.DisplayFor(x => x.price)
+    </div>
+    <div>
+        <input type="submit" value="Confirm" class="btn btn-default" />
+    </div>
+
+}

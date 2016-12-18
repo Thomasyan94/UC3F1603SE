@@ -1,0 +1,49 @@
+﻿@model ys.Models.BookViewModel
+
+@{
+    ViewBag.Title = "Book";
+}
+
+<h1>@Model.ShipName</h1>
+<h2>@Model.shipType</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <table class="table">
+            <tr>
+                <td>
+                    Total First Class Cabin
+                </td>
+                <td>
+                    @Model.totalF
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Price
+                </td>
+                <td>
+                    @Model.fPrice @if (Model.totalF != 0) { @Html.ActionLink("Purchase", "Purchase", new { id = Model.jID, type = "first" }) } 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Total Economic Class Cabin:
+                </td>
+                <td>
+                    @Model.totalE 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Price
+                </td>
+                <td>
+                    @Model.ePrice @if (Model.totalE != 0) { @Html.ActionLink("Purchase", "Purchase", new { id = Model.jID, type = "eco" }) } 
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+

@@ -1,0 +1,108 @@
+﻿@model ys.Models.ReservationViewModel
+
+@{
+    ViewBag.Title = "Reservation";
+}
+
+<h1>Reservation</h1>
+<hr />
+<div>
+    <h2>Your Ticket</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Ticket Number
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Departure
+            </th>
+            <th>
+                Arrival
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        @foreach (var item in Model.TicketList)
+        {
+            <tr>
+                <td>@item.PName</td>
+            </tr>
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.startDate
+                </td>
+                <td>
+                    @item.endDate
+                </td>
+                <td>
+                    @item.departLocation
+                </td>
+                <td>
+                    @item.arrivedLocation
+                </td>
+                <td>
+                    @item.TypeofClass
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<hr />
+<div>
+    <h2>All Ships we have</h2>
+    <table class="table">
+        <tr>
+            <th>Name</th><th>Type</th><th>Total First Class</th><th>First Class Price</th><th>Total Economy Class</th><th>Economy Class Price</th>
+        </tr>
+        @foreach(var item in Model.ShipList)
+        {
+            <tr>
+                <td>@item.shipName</td>
+                <td>@item.Type</td>
+                <td>@item.FClass</td>
+                <td>@item.FCPrice</td>
+                <td>@item.EClass</td>
+                <td>@item.ECPrice</td>
+            </tr>
+        }
+    </table>
+</div>
+<hr />
+<div>
+    <h2>Journey available</h2>
+    <table class="table">
+        <tr>
+            <th>Start Date</th><th>End Date</th><th>Departure</th><th>Arrival</th>
+        </tr>
+        @foreach(var item in Model.JourneyList)
+        {
+            <tr>
+                <td>@item.startDate</td>
+                <td>@item.endDate</td>
+                <td>@item.departLocation</td>
+                <td>@item.arrivedLocation</td>
+                <td>@Html.ActionLink("Book", "Book", new { id = item.Id })</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+

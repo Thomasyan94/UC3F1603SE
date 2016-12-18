@@ -1,0 +1,66 @@
+﻿@model ys.Models.Ship
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ship</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.shipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shipName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FCPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FCPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ECPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ECPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
